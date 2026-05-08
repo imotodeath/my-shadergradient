@@ -45,6 +45,17 @@ pnpm add -D @types/three
 
 Need the stateless control surfaces? Pull them from the `@shadergradient/ui` package (ESM build used by Framer/Figma), not from `@shadergradient/react`.
 
+### Compatibility matrix
+
+`@shadergradient/react` itself works on React 18 or 19, but the right `@react-three/fiber` version depends on your environment. **For Next.js 15 App Router specifically**, you must use R3F v9 + React 19 — R3F v8 is structurally incompatible with the App Router's vendored React 19 canary (see [#138](https://github.com/ruucm/shadergradient/issues/138) for the full trace).
+
+| Environment                           | React          | @react-three/fiber   | three       |
+| ------------------------------------- | -------------- | -------------------- | ----------- |
+| **Next 15 — App Router**              | `^19.0.0`      | `^9.0.0`             | `>=0.158.0` |
+| Next 14 / Next 15 Pages / Vite / etc. | `^18` or `^19` | matching `8.x`/`9.x` | `>=0.158.0` |
+
+No `next.config` aliases or `transpilePackages` entries are required when you stay on these combinations.
+
 # Packages
 
 - `@shadergradient/react`
