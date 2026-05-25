@@ -1,5 +1,11 @@
 # shadergradient
 
+## 2.4.23
+
+### Patch Changes
+
+- fix production-wrap react-conciler
+
 ## 2.4.22
 
 ### Patch Changes
