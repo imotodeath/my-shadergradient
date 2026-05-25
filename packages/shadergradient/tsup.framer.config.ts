@@ -52,7 +52,11 @@ export default defineConfig(async (options) => {
     // internal bundles
     // ['@react-spring/three', '@react-three/fiber', '@react-three/drei', 'three']
 
-    external: ['react', 'framer', 'react-reconciler'], // react-reconciler need to be external, cause esbuild can't resolve it (Error "Dynamic require of "react" is not supported")
+    // Framer's canvas sandbox import map only resolves react / react-dom / framer.
+    // Everything else (three, @react-three/fiber and its react-reconciler dep incl. 'react-reconciler/constants')
+    // must be bundled, otherwise the sandbox throws "Unable to resolve specifier".
+    external: ['react', 'framer'],
+    noExternal: ['three', '@react-three/fiber', 'react-reconciler'], // commonjsPlugin below handles react-reconciler's CommonJS require()
     esbuildPlugins: [
       glslLoader,
       commonjsPlugin(), // this is for zustand
