@@ -1,5 +1,11 @@
 # shadergradient
 
+## 2.4.22
+
+### Patch Changes
+
+- noExternal 'react-reconciler'
+
 ## 2.4.21
 
 ### Patch Changes
