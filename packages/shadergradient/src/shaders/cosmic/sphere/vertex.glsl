@@ -174,17 +174,6 @@ void main() {
   #endif
   #include <begin_vertex>
 
-  #include <clipping_planes_vertex>
-  #include <displacementmap_vertex>
-  #include <logdepthbuf_vertex>
-  #include <morphtarget_vertex>
-  #include <project_vertex>
-  #include <skinning_vertex>
-    vViewPosition = -mvPosition.xyz;
-  #include <fog_vertex>
-  #include <shadowmap_vertex>
-  #include <worldpos_vertex>
-
   //-------- Cosmic Nebula Effect ------------
   vUv = uv;
   
@@ -236,5 +225,23 @@ void main() {
   pos = rotateX(pos, cos(t * 0.08 + angle) * 0.08);
   pos = rotateZ(pos, sin(t * 0.05 + spiralAngle) * 0.05);
 
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+  // route the deformed position through <project_vertex> so gl_Position is
+  // written exactly once; a second gl_Position write after the chunks breaks
+  // on some OpenGL drivers (#157)
+  transformed = pos;
+
+  #include <morphtarget_vertex>
+  #include <skinning_vertex>
+  #include <displacementmap_vertex>
+  #include <project_vertex>
+  #include <logdepthbuf_vertex>
+  #include <clipping_planes_vertex>
+
+  // keep vViewPosition based on the undeformed position so lighting and
+  // reflections look exactly as before
+  vViewPosition = -(modelViewMatrix * vec4(position, 1.0)).xyz;
+
+  #include <worldpos_vertex>
+  #include <shadowmap_vertex>
+  #include <fog_vertex>
 }
