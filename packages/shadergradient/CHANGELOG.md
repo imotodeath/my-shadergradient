@@ -1,5 +1,11 @@
 # shadergradient
 
+## 2.4.24
+
+### Patch Changes
+
+- fix gl_Position
+
 ## 2.4.23
 
 ### Patch Changes
