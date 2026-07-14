@@ -7,12 +7,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# ↓↓↓ この5行を新しく追加してください ↓↓↓
 permissions:
   contents: read
   pages: write
   id-token: write
-# ↑↑↑ ここまで ↑↑↑
 
 jobs:
   build:
@@ -34,13 +32,18 @@ jobs:
       - name: Generate Pages
         run: |
           pnpm install --no-frozen-lockfile
+          # Framer用のリリースファイルを生成
           pnpm --filter=@shadergradient/react release:framer
+          # UIパッケージのリリースファイルを生成
           pnpm --filter=ui release
+          # Next.js のビルド（静的エクスポートを実行し、outフォルダを出力させます）
+          pnpm --filter=example-nextjs-dev build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'packages/shadergradient/release'
+          # アップロードする対象を、生成された「out」フォルダに変更します
+          path: 'apps/example-nextjs-dev/out'
 
       - name: Deploy to GitHub Pages
         id: deployment
