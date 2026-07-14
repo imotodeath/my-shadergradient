@@ -7,18 +7,23 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# ↓↓↓ この5行を新しく追加してください ↓↓↓
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+# ↑↑↑ ここまで ↑↑↑
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. メインのコードを取得（フォルダを分けずにルートに展開します）
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2. pnpmのセットアップ
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
@@ -26,22 +31,17 @@ jobs:
           version: 10.2.1
           run_install: false
 
-      # 3. 依存関係のインストールとビルド
       - name: Generate Pages
         run: |
           pnpm install --no-frozen-lockfile
           pnpm --filter=@shadergradient/react release:framer
           pnpm --filter=ui release
 
-      # 4. ビルドされた成果物を GitHub Pages にアップロードする（★追加）
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # デプロイしたいフォルダを指定します
-          # （もし packages/.../release 以外に出力フォルダがある場合はそのパスを指定してください。例: ./dist や ./out）
           path: 'packages/shadergradient/release'
 
-      # 5. 実際にデプロイを実行する（★追加）
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
