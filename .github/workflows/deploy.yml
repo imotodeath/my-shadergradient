@@ -1,39 +1,24 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Deploy
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # 1. メインのコードを取得（フォルダを分けずにルートに展開します）
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # All commits, so we can look at the tags
-          ref: main
-          path: main
-      - name: Checkout Pages
-        uses: actions/checkout@v4
-        with:
-          ref: pages
-          path: pages
+          fetch-depth: 0
 
+      # 2. pnpmのセットアップ
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
@@ -41,19 +26,22 @@ jobs:
           version: 10.2.1
           run_install: false
 
+      # 3. 依存関係のインストールとビルド
       - name: Generate Pages
         run: |
-          cd main
           pnpm install --no-frozen-lockfile
           pnpm --filter=@shadergradient/react release:framer
-          cp -rf packages/shadergradient/release/* $GITHUB_WORKSPACE/pages/
           pnpm --filter=ui release
-          cp -rf packages/ui/release/* $GITHUB_WORKSPACE/pages/
-      - name: Commit & Push
-        run: |
-          cd pages
-          git config --global user.name 'deploy'
-          git config --global user.email 'deploy@users.noreply.github.com'
-          git add .
-          git commit -m "Updated"
-          git push --force
+
+      # 4. ビルドされた成果物を GitHub Pages にアップロードする（★追加）
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # デプロイしたいフォルダを指定します
+          # （もし packages/.../release 以外に出力フォルダがある場合はそのパスを指定してください。例: ./dist や ./out）
+          path: 'packages/shadergradient/release'
+
+      # 5. 実際にデプロイを実行する（★追加）
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
