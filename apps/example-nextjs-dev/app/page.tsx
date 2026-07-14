@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react'
 
 export default function Home() {
@@ -15,8 +16,6 @@ export default function Home() {
     >
       <ShaderGradient
         animate="on"
-        bgColor1="#000000"
-        bgColor2="#000000"
         brightness={1.1}
         cAzimuthAngle={180}
         cDistance={3.9}
@@ -25,13 +24,8 @@ export default function Home() {
         color1="#5606ff"
         color2="#fe8989"
         color3="#000000"
-        destination="onCanvas"
-        embedMode="off"
         envPreset="city"
-        format="gif"
         fov={45}
-        frameRate={10}
-        gizmoHelper="hide"
         grain="off"
         lightType="3d"
         pixelDensity={1}
