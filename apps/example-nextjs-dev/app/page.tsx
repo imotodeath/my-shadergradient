@@ -17,8 +17,10 @@ export default function Home() {
     >
       <ShaderGradient
   animate="on"
-  axesHelper="off" // axesHelper="on" is recommended for local development
-  brightness={1.3}
+  axesHelper="off"
+  bgColor1="#000000"
+  bgColor2="#000000"
+  brightness={1.1}
   cAzimuthAngle={170}
   cDistance={4.4}
   cPolarAngle={70}
@@ -28,18 +30,18 @@ export default function Home() {
   color3="#ffffff"
   destination="onCanvas"
   embedMode="off"
-  envPreset="city"
+  envPreset="lobby"
   format="gif"
   fov={45}
   frameRate={10}
   gizmoHelper="hide"
   grain="off"
   lightType="3d"
-  pixelDensity={1}
+  pixelDensity={0.9}
   positionX={0}
   positionY={0.9}
   positionZ={-0.3}
-  range="enabled"
+  range="disabled"
   rangeEnd={40}
   rangeStart={0}
   reflection={0.1}
@@ -48,11 +50,11 @@ export default function Home() {
   rotationZ={0}
   shader="defaults"
   type="sphere"
-  uAmplitude={5.9}
+  uAmplitude={6.1}
   uDensity={1.3}
   uFrequency={0}
   uSpeed={0.05}
-  uStrength={7.5}
+  uStrength={9.3}
   uTime={0}
   wireframe={false}
 />
