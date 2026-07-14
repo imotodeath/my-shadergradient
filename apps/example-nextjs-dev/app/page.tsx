@@ -6,6 +6,7 @@ import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react'
 export default function Home() {
   return (
     <ShaderGradientCanvas
+      alpha
       style={{
         position: 'fixed',
         top: 0,
@@ -16,9 +17,7 @@ export default function Home() {
     >
       <ShaderGradient
   animate="on"
-  axesHelper="off"
-  bgColor1="#000000"
-  bgColor2="#000000"
+  axesHelper="off" // axesHelper="on" is recommended for local development
   brightness={1.3}
   cAzimuthAngle={170}
   cDistance={4.4}
