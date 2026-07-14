@@ -2,16 +2,17 @@
 const nextConfig = {
   output: 'export',
   
-  // ↓↓↓ ここから追加 ↓↓↓
+  // ↓↓↓ この2行を新しく追加してください ↓↓↓
+  basePath: '/my-shadergradient',
+  assetPrefix: '/my-shadergradient',
+  // ↑↑↑ ここまで ↑↑↑
+
   eslint: {
-    // ビルド時のESLintエラーを無視する
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // ビルド時のTypeScriptの型エラーを無視する
     ignoreBuildErrors: true,
   },
-  // ↑↑↑ ここまで追加 ↑↑↑
 };
 
 export default nextConfig;
