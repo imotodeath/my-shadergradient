@@ -15,7 +15,6 @@ export default function Home() {
     >
       <ShaderGradient
         animate="on"
-        axesHelper="on"
         bgColor1="#000000"
         bgColor2="#000000"
         brightness={1.1}
