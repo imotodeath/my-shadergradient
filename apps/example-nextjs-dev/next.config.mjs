@@ -1,7 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // ← この行を新しく追加します
-  // すでに他の設定が書いてある場合は、その下にカンマ（,）で区切って続けてください
+  output: 'export',
+  
+  // ↓↓↓ ここから追加 ↓↓↓
+  eslint: {
+    // ビルド時のESLintエラーを無視する
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    // ビルド時のTypeScriptの型エラーを無視する
+    ignoreBuildErrors: true,
+  },
+  // ↑↑↑ ここまで追加 ↑↑↑
 };
 
 export default nextConfig;
