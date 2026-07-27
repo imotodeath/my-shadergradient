@@ -13,6 +13,7 @@ export default function Home() {
         left: 0,
         width: '100vw',
         height: '100vh',
+        backgroundColor: 'transparent'
       }}
     >
       <ShaderGradient
