@@ -18,8 +18,6 @@ export default function Home() {
       <ShaderGradient
   animate="on"
   axesHelper="off"
-  bgColor1="#000000"
-  bgColor2="#000000"
   brightness={1.1}
   cAzimuthAngle={170}
   cDistance={4.4}
