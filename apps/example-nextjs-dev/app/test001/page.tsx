@@ -23,7 +23,7 @@ export default function Home() {
   cAzimuthAngle={1333}
   cDistance={8.94}
   cPolarAngle={98}
-  cameraZoom={6.9}
+  cameraZoom={1.1}
   color1="#fff157"
   color2="#73eaff"
   color3="#fff157"
@@ -31,7 +31,7 @@ export default function Home() {
   embedMode="off"
   envPreset="city"
   format="gif"
-  fov={100}
+  fov={30}
   frameRate={10}
   gizmoHelper="hide"
   grain="off"
