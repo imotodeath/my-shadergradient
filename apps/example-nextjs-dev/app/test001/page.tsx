@@ -16,7 +16,7 @@ export default function Home() {
         backgroundColor: 'transparent'
       }}
     >
-    <ShaderGradient
+  <ShaderGradient
   animate="on"
   axesHelper="off"
   brightness={1.2}
@@ -24,9 +24,9 @@ export default function Home() {
   cDistance={8.94}
   cPolarAngle={98}
   cameraZoom={1.46}
-  color1="#fff157"
+  color1="#ffe83b"
   color2="#73eaff"
-  color3="#fff157"
+  color3="#fffdf5"
   destination="onCanvas"
   embedMode="off"
   envPreset="city"
