@@ -20,10 +20,10 @@ export default function Home() {
   animate="on"
   axesHelper="off"
   brightness={1.2}
-  cAzimuthAngle={1333}
+  cAzimuthAngle={1374}
   cDistance={8.94}
-  cPolarAngle={98}
-  cameraZoom={1.46}
+  cPolarAngle={94}
+  cameraZoom={5}
   color1="#ffe83b"
   color2="#73eaff"
   color3="#fffdf5"
@@ -31,7 +31,7 @@ export default function Home() {
   embedMode="off"
   envPreset="city"
   format="gif"
-  fov={30}
+  fov={60}
   frameRate={10}
   gizmoHelper="hide"
   grain="off"
@@ -53,10 +53,10 @@ export default function Home() {
   uDensity={2}
   uFrequency={5.5}
   uSpeed={0.1}
-  uStrength={1.1}
+  uStrength={1}
   uTime={0.2}
   wireframe={false}
-  zoomOut={false}
+  zoomOut={true}
 />
     </ShaderGradientCanvas>
   )
