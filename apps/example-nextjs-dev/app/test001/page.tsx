@@ -16,14 +16,14 @@ export default function Home() {
         backgroundColor: 'transparent'
       }}
     >
-      <ShaderGradient
+    <ShaderGradient
   animate="on"
   axesHelper="off"
   brightness={1.2}
   cAzimuthAngle={1333}
   cDistance={8.94}
   cPolarAngle={98}
-  cameraZoom={1.5}
+  cameraZoom={1.46}
   color1="#fff157"
   color2="#73eaff"
   color3="#fff157"
@@ -53,7 +53,7 @@ export default function Home() {
   uDensity={2}
   uFrequency={5.5}
   uSpeed={0.1}
-  uStrength={1.7}
+  uStrength={1.1}
   uTime={0.2}
   wireframe={false}
   zoomOut={false}
