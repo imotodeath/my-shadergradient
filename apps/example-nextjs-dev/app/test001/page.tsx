@@ -31,7 +31,7 @@ export default function Home() {
   embedMode="off"
   envPreset="city"
   format="gif"
-  fov={60}
+  fov={70}
   frameRate={10}
   gizmoHelper="hide"
   grain="off"
