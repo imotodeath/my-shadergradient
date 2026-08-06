@@ -23,7 +23,7 @@ export default function Home() {
   cAzimuthAngle={1333}
   cDistance={8.94}
   cPolarAngle={98}
-  cameraZoom={1.1}
+  cameraZoom={1.5}
   color1="#fff157"
   color2="#73eaff"
   color3="#fff157"
