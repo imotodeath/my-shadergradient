@@ -3,8 +3,8 @@ const nextConfig = {
   output: 'export',
   
   // ↓↓↓ この2行を新しく追加してください ↓↓↓
-  basePath: '/my-shadergradient',
-  assetPrefix: '/my-shadergradient',
+  // basePath: '/my-shadergradient',
+  // assetPrefix: '/my-shadergradient',
   // ↑↑↑ ここまで ↑↑↑
 
   eslint: {
