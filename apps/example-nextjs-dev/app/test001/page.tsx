@@ -19,19 +19,19 @@ export default function Home() {
       <ShaderGradient
   animate="on"
   axesHelper="off"
-  brightness={1}
-  cAzimuthAngle={1044}
+  brightness={1.2}
+  cAzimuthAngle={1156}
   cDistance={8.94}
-  cPolarAngle={83}
-  cameraZoom={1.05}
-  color1="#faff5e"
-  color2="#61ffca"
-  color3="#fdff70"
+  cPolarAngle={120}
+  cameraZoom={0.38}
+  color1="#fff157"
+  color2="#73eaff"
+  color3="#fff157"
   destination="onCanvas"
   embedMode="off"
   envPreset="city"
   format="gif"
-  fov={30}
+  fov={10}
   frameRate={10}
   gizmoHelper="hide"
   grain="off"
