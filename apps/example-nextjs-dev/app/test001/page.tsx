@@ -20,10 +20,10 @@ export default function Home() {
   animate="on"
   axesHelper="off"
   brightness={1.2}
-  cAzimuthAngle={1156}
+  cAzimuthAngle={1333}
   cDistance={8.94}
-  cPolarAngle={120}
-  cameraZoom={0.38}
+  cPolarAngle={98}
+  cameraZoom={6.9}
   color1="#fff157"
   color2="#73eaff"
   color3="#fff157"
@@ -31,7 +31,7 @@ export default function Home() {
   embedMode="off"
   envPreset="city"
   format="gif"
-  fov={10}
+  fov={100}
   frameRate={10}
   gizmoHelper="hide"
   grain="off"
@@ -49,8 +49,8 @@ export default function Home() {
   rotationZ={0}
   shader="defaults"
   type="sphere"
-  uAmplitude={2.1}
-  uDensity={1.7}
+  uAmplitude={1.2}
+  uDensity={2}
   uFrequency={5.5}
   uSpeed={0.1}
   uStrength={1.7}
