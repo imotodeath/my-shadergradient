@@ -52,7 +52,7 @@ export default function Home() {
   uAmplitude={2.3}
   uDensity={0.9}
   uFrequency={5.5}
-  uSpeed={0.1}
+  uSpeed={0.2}
   uStrength={1.4}
   uTime={0.2}
   wireframe={false}
